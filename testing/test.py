@@ -13,20 +13,20 @@ import pickle
 import sys
 import time
 
-with open(r'globaldeploy.json') as file:
+with open(r'path/globaldeploy.json') as file:
     data = json.load(file)
 
 
 def chat():
      # load trained model
-    model = keras.models.load_model('model')
+    model = keras.models.load_model('path/model')
 
     # load tokenizer object
-    with open('tokenizer.pickle', 'rb') as handle:
+    with open('path/tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
 
     # load label encoder object
-    with open('label_encoder.pickle', 'rb') as enc:
+    with open('path/label_encoder.pickle', 'rb') as enc:
         lbl_encoder = pickle.load(enc)
 
     # parameters
