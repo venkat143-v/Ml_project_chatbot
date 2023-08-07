@@ -10,7 +10,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
 
-with open(r'globaldeploy.json') as file:
+with open(r'path/globaldeploy.json') as file:
     data = json.load(file)
     
 training_sentences = []
@@ -72,15 +72,15 @@ history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
 # to save the trained model
 
-model.save_weights("model")
+model.save_weights("path/model")
 
 import pickle
 
 # to save the fitted tokenizer
-with open('tokenizer.pickle', 'wb') as handle:
+with open('path/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
     
 # to save the fitted label encoder
-with open('label_encoder.pickle', 'wb') as ecn_file:
+with open('path/label_encoder.pickle', 'wb') as ecn_file:
     pickle.dump(lbl_encoder, ecn_file, protocol=pickle.HIGHEST_PROTOCOL)
     
